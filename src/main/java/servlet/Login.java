@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,31 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class SampleServlet
+ * Servlet implementation class Login
  */
-@WebServlet("/SampleServlet")
-public class SampleServlet extends HttpServlet {
+@WebServlet("/Login")
+public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SampleServlet() {
+    public Login() {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	@Override
-	public void init(ServletConfig config) throws ServletException {
-		// TODO 自動生成されたメソッド・スタブ
-	
-	}
-
-	@Override
-	public void destroy() {
-		// TODO 自動生成されたメソッド・スタブ
-
-	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -49,7 +36,7 @@ public class SampleServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		//ログイン認証処理を書く
 	}
 
 }
