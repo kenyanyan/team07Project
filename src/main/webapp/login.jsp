@@ -1,16 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
+<%
+
+	boolean is_check = (boolean) request.getAttribute("is_check");
+
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8">
-<title>Sign in</title>
+        <title>Sign in</title>
+        <link rel="stylesheet" href="login.css">
 </head>
 <body>
+	<%
+	if (!is_check) {
+	%>
+	<div>メールアドレスまたはパスワードが正しくありません</div>
+	<%
+	}
+	%>
 	<form action="/team07Project/Login" method="post">
+		<input type="hidden" name="post" value="post">
 		<hr>
-		<div align="flex-start">
+		<div align="flex-tart">
 			<table border="0">
 				<tr>
 					<th>メールアドレス</th>
@@ -28,7 +42,7 @@
 			</table>
 		</div>
 	</form>
-	<form>
+	<form action="/team07Project/MenberRegist">
 		<input type="submit" value="Sign up">
 	</form>
 </body>
