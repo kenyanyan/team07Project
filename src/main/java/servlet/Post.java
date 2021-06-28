@@ -2,8 +2,10 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.postDAO;
 import model.User;
 import model.postLogic;
 
@@ -36,6 +39,10 @@ public class Post extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		postDAO pDAO = new postDAO();
+		
+		List<model.Post> postList = pDAO.getNewPost();
+		request.setAttribute("postData", postList);
 		request.setAttribute("is_title", true);
 		request.setAttribute("is_text", true);
 		request.setAttribute("is_largeGenre", true);
@@ -85,15 +92,16 @@ public class Post extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute("loginUser");
-			Date date = new Date();
+			Timestamp date = null;
 			Blob image = null;
 
-			model.Post post = new model.Post(user.getid(), 1, 1, title, text, date, image);
+			model.Post post = new model.Post(user.getid(), 1, 1, title, text, image);
 			postLogic pL = new postLogic();
 
 			boolean isPost = pL.execute(post);
 			if(isPost ==true) {
 				System.out.println("aaa");
+				
 				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
 			}
 
