@@ -34,5 +34,6 @@ boolean is_check = (boolean) request.getAttribute("is_check");
 				<button>Sign UP</button>
 			</form>
 		</div>
+		</div>
 </body>
 </html>

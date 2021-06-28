@@ -67,6 +67,7 @@ public class MenberRegist extends HttpServlet {
 		//正規表現メール
 		String pattern = "^([a-zA-Z0-9])+([a-zA-Z0-9\\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\\._-]+)+$";
 		Pattern p = Pattern.compile(pattern);
+		
 
 		//System.out.println(pass.length()+"passの長さ");
 
@@ -99,17 +100,16 @@ public class MenberRegist extends HttpServlet {
 		}
 
 		if (is_check) {
-			System.out.println("aaa");
 			//全てのチェックが通ったならば会員登録処理を行う
 			User user = new User(mail, pass, name);
 			RegistLogic registLogic = new RegistLogic();
 			if (registLogic.execute(user)) {
 				//DBにユーザー情報が正しく登録された場合
-				System.out.println("unko1");
-				response.sendRedirect("/team07Project/login.jsp");
+				request.setAttribute("is_check", true);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("login.jsp");
+				dispatcher.forward(request, response);
 			} else {
 				//DBの保存に失敗したとき
-				System.out.println("UNKO2");
 				request.setAttribute("is_mail", 0);
 				request.setAttribute("is_pass", true);
 				request.setAttribute("is_pass2", true);
