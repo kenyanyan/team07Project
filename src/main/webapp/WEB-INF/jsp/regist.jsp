@@ -6,12 +6,13 @@ int is_mail = (int) request.getAttribute("is_mail");
 boolean is_pass = (boolean) request.getAttribute("is_pass");
 boolean is_pass2 = (boolean) request.getAttribute("is_pass2");
 boolean is_name = (boolean) request.getAttribute("is_name");
+boolean is_db =(boolean)request.getAttribute("is_db");
 %>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" Content="text/html;charset=Shift_JIS">
 
 <title>会員登録</title>
 <style type="text/css">
@@ -29,15 +30,13 @@ boolean is_name = (boolean) request.getAttribute("is_name");
 		</h1>
 		<nav>
 			<ul class="main-nav">
-
-
 			</ul>
 		</nav>
 	</header>
 	<div style="width: 30%; margin: 0 auto;">
 		<div>
 			<form name="myForm" method="post"
-				action="/team07Project/MenberRegist">
+				action="/team07Project/MenberRegist" accept-charset="shift_jis">
 				<h2 style="text-align: left">
 					<label>ID:</label><input type="email" name="mail"
 						placeholder="xxx@●●●.com">
@@ -82,6 +81,10 @@ boolean is_name = (boolean) request.getAttribute("is_name");
 					if (!is_name) {
 					%>
 					<div class="error">名前を入力してください</div>
+					<%
+					}else if(!is_db){
+					%>
+					<div class="error">DBの接続エラーです　管理者にお問い合わせください</div>
 					<%
 					}
 					%>
