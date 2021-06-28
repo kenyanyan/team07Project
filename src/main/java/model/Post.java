@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Post {
 	private int post_id;
-	private int customer_id;
+	private String customer_id;
 	private int large_id;
 	private int middle_id;
 	private String title;
@@ -15,7 +15,7 @@ public class Post {
 	private Blob image;
 	
 	
-	public Post(int customer_id,int large_id,int middle_id,String title,String text,int good,Date post_time,Blob image) {
+	public Post(String customer_id,int large_id,int middle_id,String title,String text,Date post_time,Blob image) {
 		setCustomer_id(customer_id);
 		setLarge_id(large_id);
 		setMiddle_id(middle_id);
@@ -26,17 +26,18 @@ public class Post {
 	}
 	
 	
+	public void setCustomer_id(String customer_id) {
+		this.customer_id = customer_id;
+	}
+	public String getCustomer_id() {
+		return this.customer_id;
+	}
+
 	public int getPost_id() {
 		return post_id;
 	}
 	public void setPost_id(int post_id) {
 		this.post_id = post_id;
-	}
-	public int getCustomer_id() {
-		return customer_id;
-	}
-	public void setCustomer_id(int customer_id) {
-		this.customer_id = customer_id;
 	}
 	public int getLarge_id() {
 		return large_id;
