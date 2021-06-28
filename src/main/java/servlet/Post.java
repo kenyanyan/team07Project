@@ -37,7 +37,6 @@ public class Post extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setAttribute("is_title", true);
-		//set
 		request.setAttribute("is_text", true);
 		request.setAttribute("is_largeGenre", true);
 		request.setAttribute("is_middleGenre", true);
@@ -92,6 +91,7 @@ public class Post extends HttpServlet {
 
 			boolean isPost = pL.execute(post);
 			if(isPost ==true) {
+				System.out.println("aaa");
 				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
 			}
 
@@ -101,9 +101,9 @@ public class Post extends HttpServlet {
 			request.setAttribute("is_text", is_text);
 			request.setAttribute("is_largeGenre", is_largeGenre);
 			request.setAttribute("is_middleGenre", is_middleGenre);
+			System.out.println("sss");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/post.jsp");
+			dispatcher.forward(request, response);
 		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/post.jsp");
-		dispatcher.forward(request, response);
 	}
 }
