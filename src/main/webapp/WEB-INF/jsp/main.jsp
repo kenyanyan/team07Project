@@ -7,6 +7,7 @@
 <title>メインページ</title>
 <img src="otin2.png" alt="ロゴのスクショ">
 </head>
+<<<<<<< HEAD
 <body>
 	<hr>
 	<div align="flex-start">
@@ -31,5 +32,6 @@
 			</div>
 		</div>
 	</div>
+
 </body>
 </html>
