@@ -6,7 +6,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -90,13 +89,13 @@ public class customerDAO {
 			String sql = "INSERT INTO CUSTOMER ( CUSTOMER_ID , PASS , NAME ) VALUES('" + user.getid() + "','"
 					+ user.getPass() + "','" + user.getname() + "');";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			ResultSet rs = pStmt.executeQuery();
-
+			//INSERT文の実行
+			pStmt.executeUpdate();
+			return true;
 		} catch (Exception e) {
+			System.out.println(e);
 			return false;
 		}
-		return true;
 
 	}
 
