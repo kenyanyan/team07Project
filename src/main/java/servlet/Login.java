@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import model.LoginLogic;
 import model.User;
 
 @WebServlet("/Login")
@@ -27,19 +28,19 @@ public class Login extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
 		User user = new User(id, pw);
+		System.out.println(user.getid()+":"+user.getPass());
+		LoginLogic loginLogic = new LoginLogic();
+		boolean isLogin = loginLogic.execute(user);
+		System.out.println(id+" : "+pw);
 
-/*			LoginLogic loginLogic = new LoginLogic();
-			boolean isLogin = loginLogic.execute(user);*/
-				
-
-		boolean isLogin = true;
+		if (isLogin) {
+			HttpSession session = request.getSession();
+			session.setAttribute("loginUser", user);
+			request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
+		} else  {
+			request.getRequestDispatcher("login.jsp").forward(request, response);
+		}
 		
-				if (isLogin) {
-					HttpSession session = request.getSession();
-					session.setAttribute("loginUser", user);
-				} else if (!isLogin == equals("")) {
-	}
-				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
 
-}
+	}
 }

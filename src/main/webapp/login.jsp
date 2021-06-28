@@ -10,7 +10,7 @@
 <form action = "/team07Project/Login" method = "post">
 		<hr>
 		<div align="flex-start">
-			<table border="0">sss
+			<table border="0">
 					<tr>
 						<th>
 							メールアドレス

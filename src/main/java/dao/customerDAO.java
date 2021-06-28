@@ -43,9 +43,12 @@ public class customerDAO {
 	}
 
 	public User findUser(User user) {
-		User DB_user;
+		User DB_userdata;
+		System.out.println("DB接続開始");
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_pass)) {
+			System.out.println("接続成功");
 			String sql = "SELECT * from CUSTOMER WHERE CUSTOMER_ID = '" + user.getid() + "'";
+			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			ResultSet rs = pStmt.executeQuery();
@@ -56,24 +59,25 @@ public class customerDAO {
 			Date birthday = rs.getDate("date");
 			String birthPlace = rs.getString("birthPlace");
 			Blob icon = rs.getBlob("icon");
-			DB_user = new User(id, pass, name, birthday, birthPlace, icon);
+			DB_userdata = new User(id, pass, name, birthday, birthPlace, icon);
 
 		} catch (Exception e) {
 			return null;
 		}
-		return DB_user;
+		return DB_userdata;
 	}
 
 	public String getPass(String id) {
 		String pass = "";
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_pass)) {
-			String sql = "SELECT pass from CUSTOMER WHERE customer_id='+id+'";
+			String sql = "SELECT PASS from CUSTOMER WHERE customer_id='" + id +"';";
+			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			ResultSet rs = pStmt.executeQuery();
-
-			pass = rs.getString("pass");
-
+			rs.next();
+			pass = rs.getString("PASS");
+			System.out.println(pass);
 		} catch (Exception e) {
 			return null;
 		}
