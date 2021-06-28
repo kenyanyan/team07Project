@@ -26,7 +26,6 @@ public class User implements Serializable {
 		setBirthDate(Birthdate);
 		setSex(sex);
 	}
-
 	public String getNickname() {
 		return nickname;
 	}
