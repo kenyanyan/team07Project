@@ -2,7 +2,6 @@ package servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,32 +14,32 @@ import model.User;
 @WebServlet("/Login")
 public class Login extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		//ログイン認証処理を書く
-		
-		
-		request.setCharacterEncoding("UTF-8");
-		String name = request.getParameter("name");
-		String pass = request.getParameter("pass");
-		
-		User user = new User(name,pass);
-		
-		LoginLogic loginLogic = new LoginLogic();
-		boolean isLogin = loginLogic.execute(user);
-		
-		if (isLogin) {
-			HttpSession session = request.getSession();
-			session.setAttribute("loginUser", user);
-		}else if (!isLogin == equals("")) {
-			
-		}
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/main.jsp");
-		dispatcher.forward(request, response);
-	}
 
+		request.setCharacterEncoding("UTF-8");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		User user = new User(id, pw);
+
+/*			LoginLogic loginLogic = new LoginLogic();
+			boolean isLogin = loginLogic.execute(user);*/
+				
+
+		boolean isLogin = true;
+		
+				if (isLogin) {
+					HttpSession session = request.getSession();
+					session.setAttribute("loginUser", user);
+				} else if (!isLogin == equals("")) {
+	}
+				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
+
+}
 }
