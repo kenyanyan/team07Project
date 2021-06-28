@@ -1,7 +1,8 @@
 package model;
 
 import java.sql.DriverManager;
-
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Connection;
 
 public class LoginLogic {
@@ -10,13 +11,16 @@ public class LoginLogic {
 	private String DBpass = "";
 	public boolean execute(User user) {
 		try {
-			Connection conn = DriverManager.getConnection(DBurl,DBuser,DBpass);
-			
+			//DAOにアクセスしてユーザIDとパスワード比較の処理
+			if(true == true ) { // 一致の比較
+				return true;
+			}else {
+				return false;
+			}
 		} catch (Exception e) {
-			// TODO: handle exception
+			return false;
 		}
-
+		
 	}
-	
 }
 
