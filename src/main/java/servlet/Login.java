@@ -30,8 +30,6 @@ public class Login extends HttpServlet {
 			throws ServletException, IOException {
 		//ログイン認証処理を書く
 		
-		
-
 		request.setCharacterEncoding("UTF-8");
 		String id = request.getParameter("id");
 		String pw = request.getParameter("pw");
