@@ -11,7 +11,7 @@ public class LoginLogic {
 	private String DBpass = "";
 	public boolean execute(User user) {
 		try {
-			//DAOにアクセスしてユーザIDとパスワード比較の処理
+			//DAOにアクセスしてユーザIDとパスワード比較の処理追加
 			if(true == true ) { // 一致の比較
 				return true;
 			}else {
