@@ -25,6 +25,10 @@ public class User implements Serializable {
 		setPass(pass);
 		setname(name);
 	}
+	public User(String id,String pass) {
+		setid(id);
+		setPass(pass);
+	}
 
 	public User(String id, String pass, String name, Date Birthday, String Birthplace, Blob icon) {
 		setid(id);
