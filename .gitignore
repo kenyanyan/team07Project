@@ -25,6 +25,3 @@ hs_err_pid*
 #個人設定ファイル
 .DS_Store
 thumbs.db
-
-.classpath
-.project

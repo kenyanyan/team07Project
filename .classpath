@@ -9,10 +9,5 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/pleiades/tomcat/8/lib/servlet-api.jar" sourcepath="C:/Users/yjeon/AppData/Local/Temp/.org.sf.feeling.decompiler1624841135772/source/tomcat-servlet-api-8.5.64-sources-1624848351178.jar">
-		<attributes>
-			<attribute name="javadoc_location" value="https://docs.oracle.com/javaee/7/api/"/>
-		</attributes>
-	</classpathentry>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

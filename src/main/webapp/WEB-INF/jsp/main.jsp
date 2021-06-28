@@ -5,7 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>メインページ</title>
+<img src="otin2.png" alt="ロゴのスクショ">
 </head>
-<body>ここはメイン画面
+<<<<<<< HEAD
+<body>
+	<hr>
+	<div align="flex-start">
+		<tr>
+			<td colspan="2"><input type="submit" value="新規投稿"></td>
+		</tr>
+		<div align="center">
+			<div class="Inner">
+				<div class="List">
+				<% for (int i=0; i<4; i++){ %>
+					<div class="List-Item">
+						<div class="List-Item-Content one">
+							<div class="List-Item-Content-Number">ユーザー名</div>
+							<div class="List-Item-Content-Title">タイトル</div>
+							<div class="List-Item-Content-Description">
+								テキストテキストテキスト<br> テキストテキストテキスト
+							</div>
+						</div>
+					</div>
+				<%}%>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
