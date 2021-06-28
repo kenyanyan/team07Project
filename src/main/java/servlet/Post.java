@@ -49,6 +49,8 @@ public class Post extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		String title = request.getParameter("title");
 		String text = request.getParameter("text");
