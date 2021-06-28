@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-
 //ここ
 boolean is_title = (boolean) request.getAttribute("is_title");
 boolean is_text = (boolean) request.getAttribute("is_text");
@@ -13,70 +12,69 @@ boolean is_middleGenre = (boolean) request.getAttribute("is_middleGenre");
 <head>
 <meta charset="UTF-8">
 <title>投稿ぺーじ</title>
-<img src="otin2.png" alt="ロゴのスクショ">
+<style type="text/css">
+</style>
+<link rel="stylesheet" href="post.css">
 </head>
 <body>
-	<section>
-		<form action="/team07Project/Post" method="post">
-			<div>
-				<textarea name="title" placeholder="タイトルの入力"></textarea>
-			</div>
+	<div class="form">
+		<form class="register-form" action="/team07Project/Post" method="post">
+			<input name="title" placeholder="タイトルの入力"></input>
 			<%
 			if (!is_title) {
 			%>
-				<div>タイトルが入力されていません</div>
+			<div class="error">タイトルが入力されていません</div>
 			<%
 			}
 			%>
-			<div>
-				<textarea name="text" placeholder="Text"></textarea>
-			</div>
+			<textarea name="text" placeholder="本文の入力"></textarea>
 			<%
 			if (!is_text) {
 			%>
-				<div>Textが入力されていません</div>
+			<div class="error">Textが入力されていません</div>
 			<%
 			}
 			%>
-			<div>
-				<select name="largeGenre">
-					<option value="">大項目</option>
-					<option value="book">本</option>
-					<option value="movie">映画</option>
-					<option value="cooking">料理</option>
-					<option value="other">その他</option>
+			<div class="selectdiv">
+				<label> <select name="largeGenre">
+						<option value="">大項目</option>
+						<option value="book">本</option>
+						<option value="movie">映画</option>
+						<option value="cooking">料理</option>
+						<option value="other">その他</option>
 				</select>
+				</label>
+				<%
+				if (!is_largeGenre) {
+				%>
+				<div class="error">大項目が選択されていません</div>
+				<%
+				}
+				%>
 			</div>
-			<%
-			if (!is_largeGenre) {
-			%>
-				<div>大項目が選択されていません</div>
-			<%
-			}
-			%>
-			<div>
-				<select name="middleGenre">
-					<option value="">中項目</option>
-					<option value="book">本</option>
-					<option value="movie">映画</option>
-					<option value="cooking">料理</option>
-					<option value="other">その他</option>
+
+			<div class="selectdiv">
+				<label> <select name="middleGenre">
+						<option value="">中項目</option>
+						<option value="book">本</option>
+						<option value="movie">映画</option>
+						<option value="cooking">料理</option>
+						<option value="other">その他</option>
 				</select>
+				</label>
+				<%
+				if (!is_middleGenre) {
+				%>
+				<div class="error">中項目が選択されていません</div>
+				<%
+				}
+				%>
 			</div>
-			<%
-			if (!is_middleGenre) {
-			%>
-				<div>中項目が選択されていません</div>
-			<%
-			}
-			%>
-			<div>
-				<label>画像</label>
-			</div>
-			<div class="btn_area">
-				<input type="submit" name="btn_confirm" value="投稿">
-			</div>
+
+			<button>投稿</button>
+			<p>
+			<button type="button" onclick="history.back()">前の画面に戻る</button>
 		</form>
-	</section>
+	</div>
 </body>
 </html>
