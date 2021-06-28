@@ -41,10 +41,10 @@ boolean is_middleGenre = (boolean) request.getAttribute("is_middleGenre");
 			<div>
 				<select name="largeGenre">
 					<option value="">大項目</option>
-					<option value="elephant">本</option>
-					<option value="lion">映画</option>
-					<option value="penguin">料理</option>
-					<option value="penguin">その他</option>
+					<option value="book">本</option>
+					<option value="movie">映画</option>
+					<option value="cooking">料理</option>
+					<option value="other">その他</option>
 				</select>
 			</div>
 			<%
@@ -57,10 +57,10 @@ boolean is_middleGenre = (boolean) request.getAttribute("is_middleGenre");
 			<div>
 				<select name="middleGenre">
 					<option value="">中項目</option>
-					<option value="elephant">本</option>
-					<option value="lion">映画</option>
-					<option value="penguin">料理</option>
-					<option value="penguin">その他</option>
+					<option value="book">本</option>
+					<option value="movie">映画</option>
+					<option value="cooking">料理</option>
+					<option value="other">その他</option>
 				</select>
 			</div>
 			<%

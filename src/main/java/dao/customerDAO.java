@@ -72,7 +72,6 @@ public class customerDAO {
 			String sql = "SELECT PASS from CUSTOMER WHERE customer_id='" + id +"';";
 			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);
-
 			ResultSet rs = pStmt.executeQuery();
 			rs.next();
 			pass = rs.getString("PASS");

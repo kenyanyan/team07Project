@@ -1,6 +1,9 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.Blob;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,6 +11,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.User;
+import model.postLogic;
 
 /**
  * Servlet implementation class Post
@@ -29,7 +36,12 @@ public class Post extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		request.setAttribute("is_title", true);
+		//set
+		request.setAttribute("is_text", true);
+		request.setAttribute("is_largeGenre", true);
+		request.setAttribute("is_middleGenre", true);
+		request.getRequestDispatcher("/WEB-INF/jsp/post.jsp").forward(request, response);
 
 	}
 
@@ -68,14 +80,30 @@ public class Post extends HttpServlet {
 			is_middleGenre = false;
 			System.out.println("中ジャンルが選ばれていません");
 		}
-		
-		request.setAttribute("is_title", is_title);
-		//set
-		request.setAttribute("is_text", is_text);
-		request.setAttribute("is_largeGenre", is_largeGenre);
-		request.setAttribute("is_middleGenre", is_middleGenre);
-		RequestDispatcher dispatcher =
-				request.getRequestDispatcher("/WEB-INF/jsp/post.jsp");
+		if (is_title == true && is_text == true && is_largeGenre == true && is_middleGenre == true) {
+
+			HttpSession session = request.getSession();
+			User user = (User) session.getAttribute("loginUser");
+			Date date = new Date();
+			Blob image = null;
+
+			model.Post post = new model.Post(user.getid(), 1, 1, title, text, date, image);
+			postLogic pL = new postLogic();
+
+			boolean isPost = pL.execute(post);
+			if(isPost ==true) {
+				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
+			}
+
+			//TODO: 誰か投稿失敗したときの処理書いて
+		} else {
+			request.setAttribute("is_title", is_title);
+			request.setAttribute("is_text", is_text);
+			request.setAttribute("is_largeGenre", is_largeGenre);
+			request.setAttribute("is_middleGenre", is_middleGenre);
+		}
+
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/post.jsp");
 		dispatcher.forward(request, response);
 	}
 }

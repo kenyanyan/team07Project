@@ -12,6 +12,7 @@
 	<hr>
 	<div align="flex-start">
 		<tr>
+		<form action="/team07Project/Post" method="get">
 			<td colspan="2"><input type="submit" value="新規投稿"></td>
 		</tr>
 		<div align="center">
