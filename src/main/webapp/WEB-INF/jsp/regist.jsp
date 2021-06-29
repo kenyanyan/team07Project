@@ -24,6 +24,9 @@ boolean is_db = (boolean) request.getAttribute("is_db");
 <link rel="stylesheet" href="regist.css">
 </head>
 <body>
+<header>
+	<img  src="/team07Project/logo.png">
+</header>
 	<div class="form">
 		<form class="register-form" method="post"
 			action="/team07Project/MenberRegist" accept-charset="shift_jis">
