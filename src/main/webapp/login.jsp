@@ -45,6 +45,10 @@ if (regist != null) {
 				<button>Sign UP</button>
 			</form>
 		</div>
+<<<<<<< HEAD
 	</div>
+=======
+		</div>
+>>>>>>> 806d0c4 (ユーザー登録画面のCSS反映)
 </body>
 </html>
