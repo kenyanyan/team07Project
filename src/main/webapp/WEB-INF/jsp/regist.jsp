@@ -73,6 +73,7 @@ boolean is_db = (boolean) request.getAttribute("is_db");
 			}
 			%>
 			<div>
+			<input type="hidden" name="regist" value="regist">
 				<button>会員登録</button>
 				<p>
 				<button type="button" onclick="history.back()">ログイン画面に戻る</button>
