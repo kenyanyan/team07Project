@@ -16,6 +16,7 @@ margin-top: 4px;
 .login-page .form .login{
   margin-top: -31px;
 margin-bottom: 26px;
+border-radius: 15%;
 }
 .form {
   position: relative;
@@ -26,6 +27,7 @@ margin-bottom: 26px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  border-radius: 15%;
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -39,12 +41,14 @@ margin-bottom: 26px;
   font-size: 14px;
 }
 .form button {
+	width: 280px;
+	height: 50px;
+  size: 30px;
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
   background-color: rgb(247, 247, 248);
   background-image: linear-gradient(45deg,#328f8a,#08ac4b);
-  width: 100%;
   border: 0;
   padding: 15px;
   color: #FFFFFF;
@@ -52,6 +56,7 @@ margin-bottom: 26px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
   cursor: pointer;
+  border-radius:  30px 30px 30px 30px;
 }
 .form .message {
   margin: 15px 0 0;
@@ -76,4 +81,3 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
