@@ -31,7 +31,9 @@ if (x != null) {
 <body>
 	<header class="header-4">
 		<div class="header-inner">
-			<div class="logo">しゅみったー</div>
+
+			<img class="syumi" src="/team07Project/logo.png">
+
 			<nav class="header-nav">
 
 				<input type="submit" value="マイページ">

@@ -25,7 +25,7 @@ boolean is_db = (boolean) request.getAttribute("is_db");
 </head>
 <body>
 <header>
-	<img  src="/team07Project/logo.png">
+	<img class="syumi" src="/team07Project/logo.png">
 </header>
 	<div class="form">
 		<form class="register-form" method="post"
