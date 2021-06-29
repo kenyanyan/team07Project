@@ -33,10 +33,12 @@ if (x != null) {
 		<div class="header-inner">
 			<div class="logo">しゅみったー</div>
 			<nav class="header-nav">
-				<div>マイページ</div>
+
+				<input type="submit" value="マイページ">
+
 				<div></div>
 				<form action="/team07Project/Logout" method="get">
-					<input type="submit" value="logout">
+					<input type="submit" value="ログアウト">
 				</form>
 				<div class="header-nav-item">
 					<form class="form2">
