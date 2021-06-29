@@ -1,5 +1,14 @@
+<%@page import="dao.postDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@page import="model.Post,java.util.List"%>
+<%
+	postDAO pDAO = new postDAO();
+	List<model.Post> listPost = pDAO.getNewPost();
+	System.out.println("listPost : " + listPost);
+
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +22,7 @@
 			<div class="logo">しゅみったー</div>
 			<nav class="header-nav">
 				<div>マイページ</div>
-				<div>　　　　</div>
+				<div></div>
 				<div>ログアウト</div>
 				<div class="header-nav-item">
 					<form class="form2">
@@ -32,14 +41,14 @@
 		</form>
 		<div class="card-group">
 			<%
-			for (int i = 0; i < 4; i++) {
+			for (Post post : listPost) {
 			%>
 
 			<div class="card">
 				<div class="card__imgframe"></div>
 				<div class="card__textbox">
-					<div class="card__titletext">タイトルがはいります。</div>
-					<div class="card__overviewtext">本文が入ります</div>
+					<div class="card__titletext"><%=post.getTitle() %></div>
+					<div class="card__overviewtext"><%=post.getText() %></div>
 				</div>
 			</div>
 

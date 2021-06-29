@@ -37,9 +37,10 @@ public class postDAO {
 
 	public List<Post> getNewPost() {
 		List<Post> postList = new ArrayList<Post>();
+		System.out.println("getNewPost呼び出し");
 		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_pass)) {
-			String sql = "select CUSTOMER_ID,LARGE_ID,MIDDLE_ID,TITLE,TEXT,GOOD,POST_TIME,IMAGE FROM POST LIMIT 3 WHERE ORDER BY POST_TIME DESC ";
-			
+			String sql = "select CUSTOMER_ID,LARGE_ID,MIDDLE_ID,TITLE,TEXT,GOOD,POST_TIME,IMAGE FROM POST ORDER BY POST_TIME DESC LIMIT 6;";
+			System.out.println(sql);
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			ResultSet rs = pStmt.executeQuery();
@@ -49,16 +50,17 @@ public class postDAO {
 				int middle_id = rs.getInt("middle_id");
 				String title = rs.getString("TITLE");
 				String text = rs.getString("TEXT");
-				Timestamp post_time = rs.getTimestamp("TIME_STAMP");
+				Timestamp post_time = rs.getTimestamp("POST_TIME");
 				int good = rs.getInt("good");
-				String birthPlace = rs.getString("birthPlace");
 				Blob image = rs.getBlob("image");
 				Post post = new Post(id,large_id,middle_id,title,text,good,post_time,image);
+				System.out.println("post: "+post);
 				postList.add(post);
 
 			}
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 		return postList;

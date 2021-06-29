@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.postDAO;
 import model.LoginLogic;
 import model.User;
 
@@ -42,6 +44,9 @@ public class Login extends HttpServlet {
 		if (isLogin) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", user);
+			postDAO pDAO = new postDAO();
+			List<model.Post> listPost = pDAO.getNewPost();
+			session.setAttribute("postList", listPost);
 			request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
 		} else {
 			request.setAttribute("is_check", false);
