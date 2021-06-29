@@ -1,6 +1,7 @@
 package model;
 
 import java.sql.Blob;
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Post {
@@ -11,11 +12,19 @@ public class Post {
 	private String title;
 	private String text;
 	private int good;
-	private Date post_time;
+	private Timestamp  post_time;
 	private Blob image;
 	
 	
-	public Post(String customer_id,int large_id,int middle_id,String title,String text,Date post_time,Blob image) {
+	public Post(String customer_id,int large_id,int middle_id,String title,String text,Blob image) {
+		setCustomer_id(customer_id);
+		setLarge_id(large_id);
+		setMiddle_id(middle_id);
+		setTitle(title);
+		setText(text);
+		setImage(image);
+	}
+	public Post(String customer_id,int large_id,int middle_id,String title,String text,int good,Timestamp  post_time,Blob image) {
 		setCustomer_id(customer_id);
 		setLarge_id(large_id);
 		setMiddle_id(middle_id);
@@ -23,8 +32,8 @@ public class Post {
 		setText(text);
 		setPost_time(post_time);
 		setImage(image);
+		setGood(good);
 	}
-	
 	
 	public void setCustomer_id(String customer_id) {
 		this.customer_id = customer_id;
@@ -69,10 +78,10 @@ public class Post {
 	public void setGood(int good) {
 		this.good = good;
 	}
-	public Date getPost_time() {
+	public Timestamp  getPost_time() {
 		return post_time;
 	}
-	public void setPost_time(Date post_time) {
+	public void setPost_time(Timestamp  post_time) {
 		this.post_time = post_time;
 	}
 	public Blob getImage() {

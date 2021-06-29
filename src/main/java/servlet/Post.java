@@ -2,8 +2,10 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.Blob;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,6 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import dao.postDAO;
 import model.User;
 import model.postLogic;
 
@@ -37,7 +40,6 @@ public class Post extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setAttribute("is_title", true);
-		//set
 		request.setAttribute("is_text", true);
 		request.setAttribute("is_largeGenre", true);
 		request.setAttribute("is_middleGenre", true);
@@ -50,6 +52,8 @@ public class Post extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		response.setContentType("text/html;charset=UTF-8");
+		request.setCharacterEncoding("UTF-8");
 		// TODO Auto-generated method stub
 		String title = request.getParameter("title");
 		String text = request.getParameter("text");
@@ -84,14 +88,16 @@ public class Post extends HttpServlet {
 
 			HttpSession session = request.getSession();
 			User user = (User) session.getAttribute("loginUser");
-			Date date = new Date();
+			Timestamp date = null;
 			Blob image = null;
 
-			model.Post post = new model.Post(user.getid(), 1, 1, title, text, date, image);
+			model.Post post = new model.Post(user.getid(), 1, 1, title, text, image);
 			postLogic pL = new postLogic();
 
 			boolean isPost = pL.execute(post);
-			if(isPost ==true) {
+			if (isPost == true) {
+				System.out.println("aaa");
+
 				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
 			}
 
@@ -101,9 +107,9 @@ public class Post extends HttpServlet {
 			request.setAttribute("is_text", is_text);
 			request.setAttribute("is_largeGenre", is_largeGenre);
 			request.setAttribute("is_middleGenre", is_middleGenre);
+			System.out.println("sss");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/post.jsp");
+			dispatcher.forward(request, response);
 		}
-
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/post.jsp");
-		dispatcher.forward(request, response);
 	}
 }

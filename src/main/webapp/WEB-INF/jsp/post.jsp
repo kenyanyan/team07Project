@@ -1,7 +1,9 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
 //ここ
+
 boolean is_title = (boolean) request.getAttribute("is_title");
 boolean is_text = (boolean) request.getAttribute("is_text");
 boolean is_largeGenre = (boolean) request.getAttribute("is_largeGenre");
