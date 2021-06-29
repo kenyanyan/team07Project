@@ -39,10 +39,6 @@ public class Post extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		postDAO pDAO = new postDAO();
-		
-		List<model.Post> postList = pDAO.getNewPost();
-		request.setAttribute("postData", postList);
 		request.setAttribute("is_title", true);
 		request.setAttribute("is_text", true);
 		request.setAttribute("is_largeGenre", true);
@@ -99,9 +95,9 @@ public class Post extends HttpServlet {
 			postLogic pL = new postLogic();
 
 			boolean isPost = pL.execute(post);
-			if(isPost ==true) {
+			if (isPost == true) {
 				System.out.println("aaa");
-				
+
 				request.getRequestDispatcher("/WEB-INF/jsp/main.jsp").forward(request, response);
 			}
 
