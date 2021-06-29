@@ -8,6 +8,10 @@
 	System.out.println("listPost : " + listPost);
 
 %>
+<%
+String x = "a";
+x = request.getParameter("x");
+%>
 
 <!DOCTYPE html>
 <html>
@@ -15,6 +19,15 @@
 <meta charset="UTF-8">
 <title>メインページ</title>
 <link rel="stylesheet" href="main.css">
+<%
+if (x!= null) {
+%>
+<script>
+	alert('投稿が完了しました！');
+</script>
+<%
+}
+%>
 </head>
 <body>
 	<header class="header-4">
