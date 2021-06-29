@@ -24,6 +24,9 @@ if (regist != null) {
 %>
 </head>
 <body>
+<header>
+	<img class="syumi" src="/team07Project/logo.png">
+</header>
 	<div class="login-page">
 		<div class="form">
 			<%

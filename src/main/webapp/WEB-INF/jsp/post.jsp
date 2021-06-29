@@ -19,6 +19,9 @@ boolean is_middleGenre = (boolean) request.getAttribute("is_middleGenre");
 <link rel="stylesheet" href="post.css">
 </head>
 <body>
+<header>
+	<img class="syumi" src="/team07Project/logo.png">
+</header>
 	<div class="form">
 		<form class="register-form" action="/team07Project/Post" method="post">
 			<input name="title" placeholder="タイトルの入力"></input>
