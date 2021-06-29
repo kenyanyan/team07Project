@@ -72,11 +72,13 @@ boolean is_middleGenre = (boolean) request.getAttribute("is_middleGenre");
 				}
 				%>
 			</div>
+			<input type="hidden"name="x" value="x">
 
 			<button>投稿</button>
 			<p>
-			<button type="button" onclick="history.back()">前の画面に戻る</button>
+			
 		</form>
+		<button type="button" onclick="history.back()">前の画面に戻る</button>
 	</div>
 </body>
 </html>
