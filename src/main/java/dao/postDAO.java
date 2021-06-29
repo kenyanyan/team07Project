@@ -35,6 +35,21 @@ public class postDAO {
 		return true;
 	}
 
+	public boolean delPost(Post post) {
+		try (Connection conn = DriverManager.getConnection(JDBC_URL, DB_USER, DB_pass)) {
+			System.out.println("DB connect");
+			String sql = "DELETE FROM POST WHERE CUSTOMER_ID='"+post.getCustomer_id()+"' AND POST_ID="+post.getPost_id()+";";
+			System.out.println(sql);
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			pStmt.executeUpdate();
+			
+		} catch (Exception e) {
+			return false;
+		}
+		return true;
+		
+	}
 	public List<Post> getNewPost() {
 		List<Post> postList = new ArrayList<Post>();
 		System.out.println("getNewPost呼び出し");
