@@ -3,10 +3,9 @@
 	pageEncoding="UTF-8"%>
 <%@page import="model.Post,java.util.List"%>
 <%
-	postDAO pDAO = new postDAO();
-	List<model.Post> listPost = pDAO.getNewPost();
-	System.out.println("listPost : " + listPost);
-
+postDAO pDAO = new postDAO();
+List<model.Post> listPost = pDAO.getNewPost();
+System.out.println("listPost : " + listPost);
 %>
 <%
 String x = "a";
@@ -20,7 +19,7 @@ x = request.getParameter("x");
 <title>メインページ</title>
 <link rel="stylesheet" href="main.css">
 <%
-if (x!= null) {
+if (x != null) {
 %>
 <script>
 	alert('投稿が完了しました！');
@@ -36,7 +35,9 @@ if (x!= null) {
 			<nav class="header-nav">
 				<div>マイページ</div>
 				<div></div>
-				<div>ログアウト</div>
+				<form action="/team07Project/Logout" method="get">
+					<input type="submit" value="logout">
+				</form>
 				<div class="header-nav-item">
 					<form class="form2">
 						<input type="search" class="form2-input" placeholder="記事検索" />
@@ -60,8 +61,8 @@ if (x!= null) {
 			<div class="card">
 				<div class="card__imgframe"></div>
 				<div class="card__textbox">
-					<div class="card__titletext"><%=post.getTitle() %></div>
-					<div class="card__overviewtext"><%=post.getText() %></div>
+					<div class="card__titletext"><%=post.getTitle()%></div>
+					<div class="card__overviewtext"><%=post.getText()%></div>
 				</div>
 			</div>
 
