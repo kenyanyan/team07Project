@@ -43,12 +43,8 @@ if (regist != null) {
 
 			<form action="/team07Project/MenberRegist">
 				<button>Sign UP</button>
-			</form>
+			</border></form>
 		</div>
-<<<<<<< HEAD
 	</div>
-=======
-		</div>
->>>>>>> 806d0c4 (ユーザー登録画面のCSS反映)
 </body>
 </html>
