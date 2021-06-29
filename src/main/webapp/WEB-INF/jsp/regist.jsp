@@ -73,13 +73,10 @@ boolean is_db = (boolean) request.getAttribute("is_db");
 			}
 			%>
 			<div>
-<<<<<<< HEAD
-			<input type="hidden" name="regist" value="regist">
-=======
->>>>>>> 806d0c4 (ユーザー登録画面のCSS反映)
+				<input type="hidden" name="regist" value="regist">
 				<button>会員登録</button>
 				<p>
-				<button type="button" onclick="history.back()">ログイン画面に戻る</button>
+					<button type="button" onclick="history.back()">ログイン画面に戻る</button>
 			</div>
 		</form>
 	</div>
