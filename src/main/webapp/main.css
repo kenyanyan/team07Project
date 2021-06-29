@@ -19,18 +19,20 @@ header .header {
 	text-align: center;
 	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0
 		rgba(0, 0, 0, 0.24);
+		 border-radius:  30px 30px 30px 30px;
 }
 
 .form input {
 	font-family: "Roboto", sans-serif;
 	outline: 0;
-	background: #c0c0c0;
-	width: 100%;
+	background: rgb(173, 169, 169); 
+	width: 36%;
 	border: 0;
 	margin: 0 0 15px;
 	padding: 15px;
 	box-sizing: border-box;
 	font-size: 14px;
+	 border-radius:  30px 30px 30px 30px;
 }
 
 .form button {
